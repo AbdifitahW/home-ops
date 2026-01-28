@@ -30,7 +30,26 @@ nodes:
           hardwareAddr: "98:fa:9b:02:54:37"
         dhcp: false
         addresses:
-          - "10.0.0.6/16"
+          - "10.0.0.6/24"
+        routes:
+          - gateway: "10.0.0.1"
+            network: 0.0.0.0/0
+        mtu: 1500
+        vip:
+          ip: "10.0.0.144"
+  - hostname: "control-plane-1"
+    ipAddress: "10.0.0.226"
+    installDisk: "/dev/sdb"
+    machineSpec:
+      secureboot: false
+    talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
+    controlPlane: true
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "ac:e2:d3:0f:4d:7f"
+        dhcp: false
+        addresses:
+          - "10.0.0.226/24"
         routes:
           - gateway: "10.0.0.1"
             network: 0.0.0.0/0
@@ -50,4 +69,3 @@ patches:
 controlPlane:
   patches:
     - "@./patches/controller/cluster.yaml"
-
