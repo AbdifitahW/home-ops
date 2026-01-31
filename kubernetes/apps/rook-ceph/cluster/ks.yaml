@@ -8,6 +8,7 @@ spec:
   interval: 1h
   prune: true
   targetNamespace: rook-ceph
+  path: ./kubernetes/apps/rook-ceph/cluster/app
   dependsOn:
     - name: rook-ceph-operator
       namespace: rook-ceph
