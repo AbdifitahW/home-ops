@@ -36,8 +36,6 @@ spec:
     cephClusterSpec:
       dashboard:
         enabled: true
-      csi:
-        enableCephfsDriver: false
       cleanupPolicy:
         wipeDevicesFromOtherClusters: true
       storage:

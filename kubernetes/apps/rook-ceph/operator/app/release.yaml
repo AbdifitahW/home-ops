@@ -34,6 +34,7 @@ spec:
       retries: 3
   values:
     csi:
+      enableCephfsDriver: false
       serviceMonitor:
         enabled: true
     monitoring:
