@@ -10,6 +10,8 @@ spec:
     name: *app
   interval: 1h
   values:
+    toolbox:
+      enabled: true
     cephBlockPools:
       - name: ceph-blockpool
         spec:
