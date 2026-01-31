@@ -12,6 +12,10 @@ spec:
   values:
     toolbox:
       enabled: true
+    cephFileSystems:
+      - name: ceph-filesystem
+        storageClass:
+          enabled: false
     cephBlockPools:
       - name: ceph-blockpool
         spec:
