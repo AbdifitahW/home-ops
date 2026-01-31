@@ -1,0 +1,48 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: &app rook-ceph-cluster
+spec:
+  chartRef:
+    kind: OCIRepository
+    name: *app
+  interval: 1h
+  values:
+    cephBlockPools:
+      - name: ceph-blockpool
+        spec:
+          replicated:
+            size: 1
+            requireSafeReplicaSize: false
+        storageClass:
+          enabled: true
+          name: ceph-block
+          isDefault: true
+          reclaimPolicy: Delete
+          allowVolumeExpansion: true
+          volumeBindingMode: Immediate
+    configOverride: |
+      [global]
+      osd_pool_default_size=1
+      osd_pool_default_min_size = 1
+    cephClusterSpec:
+      dashboard:
+        enabled: true
+      cleanupPolicy:
+        wipeDevicesFromOtherClusters: true
+      storage:
+        useAllNodes: false
+        nodes:
+          - name: worker1
+            devices:
+              - name: nvme1n1
+      resources:
+        mon:
+          requests:
+            cpu: 500m
+            memory: 512Mi
+      mon:
+        count: 3
+        allowMultiplePerNode: true
