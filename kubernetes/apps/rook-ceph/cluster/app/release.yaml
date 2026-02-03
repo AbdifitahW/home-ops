@@ -38,7 +38,7 @@ spec:
       storage:
         useAllNodes: false
         nodes:
-          - name: worker1
+          - name: control-plane-2
             devices:
               - name: nvme1n1
       resources:
