@@ -12,7 +12,6 @@ spec:
   values:
     toolbox:
       enabled: false
-    cephFileSystems: []
     cephBlockPools:
       - name: ceph-blockpool
         spec:
