@@ -35,8 +35,7 @@ spec:
   values:
     csi:
       enableCephfsDriver: false
-      serviceMonitor:
-        enabled: true
+      rookUseCsiOperator: false
     monitoring:
       enabled: true
     resources:
