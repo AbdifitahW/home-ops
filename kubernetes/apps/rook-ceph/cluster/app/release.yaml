@@ -36,11 +36,14 @@ spec:
       cleanupPolicy:
         wipeDevicesFromOtherClusters: true
       storage:
-        useAllNodes: false
+        useAllNodes: true
         nodes:
           - name: control-plane-2
             devices:
               - name: nvme1n1
+          - name: control-plane-1
+            devices:
+              - name: nvme0n1
       resources:
         mon:
           requests:
