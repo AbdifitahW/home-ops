@@ -14,6 +14,6 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  wait: true
+  wait: false
   path: ./kubernetes/apps/rook-ceph/operator/app
   targetNamespace: rook-ceph
