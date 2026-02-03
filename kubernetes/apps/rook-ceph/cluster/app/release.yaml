@@ -11,7 +11,7 @@ spec:
   interval: 1h
   values:
     toolbox:
-      enabled: true
+      enabled: false
     cephFileSystems: []
     cephBlockPools:
       - name: ceph-blockpool
