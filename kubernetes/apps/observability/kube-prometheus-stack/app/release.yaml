@@ -1,0 +1,61 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: kube-prometheus-stack
+spec:
+  interval: 30m
+  chartRef:
+    kind: OCIRepository
+    name: kube-prometheus-stack
+  values:
+    crds:
+      enabled: true
+    alertmanager:
+      enabled: true
+      route:
+        main:
+          enabled: true
+          hostnames: ["alertmanager.${SECRET_DOMAIN}"]
+          parentRefs:
+            - name: internal
+              namespace: networking
+              sectionName: https
+    alermanagerSpec:
+      alertmanagerConfiguration:
+        name: alertmanager
+      externalUrl: https://alertmanager.${SECRET_DOMAIN}
+      storage:
+        volumeClaimTemplate:
+          spec:
+            storageClassName: ceph-block
+            resources:
+              requests:
+                storage: 1Gi
+    prometheus:
+      route:
+        main:
+          enabled: true
+          hostnames: ["prom.${SECRET_DOMAIN}"]
+          parentRefs:
+            - name: internal
+              namespace: networking
+              sectionName: https
+
+      prometheusSpec:
+        retention: 14d
+        retentionSize: 20GB
+        resources:
+          requests:
+            cpu: 250m
+        externalUrl: https://prom.${SECRET_DOMAIN}
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: ceph-block
+              resources:
+                requests:
+                  storage: 25Gi
+    grafana:
+      enabled: false
