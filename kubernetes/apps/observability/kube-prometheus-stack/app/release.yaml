@@ -22,9 +22,7 @@ spec:
             - name: envoy-internal
               namespace: network
               sectionName: https
-      alermanagerSpec:
-        alertmanagerConfiguration:
-          name: alertmanager
+      alertmanagerSpec:
         externalUrl: https://alertmanager.${SECRET_DOMAIN}
         storage:
           volumeClaimTemplate:
