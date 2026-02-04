@@ -22,17 +22,17 @@ spec:
             - name: internal
               namespace: networking
               sectionName: https
-    alermanagerSpec:
-      alertmanagerConfiguration:
-        name: alertmanager
-      externalUrl: https://alertmanager.${SECRET_DOMAIN}
-      storage:
-        volumeClaimTemplate:
-          spec:
-            storageClassName: ceph-block
-            resources:
-              requests:
-                storage: 1Gi
+      alermanagerSpec:
+        alertmanagerConfiguration:
+          name: alertmanager
+        externalUrl: https://alertmanager.${SECRET_DOMAIN}
+        storage:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: ceph-block
+              resources:
+                requests:
+                  storage: 1Gi
     prometheus:
       route:
         main:
