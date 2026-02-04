@@ -19,5 +19,5 @@ spec:
   targetNamespace: *namespace
   wait: true
   dependsOn:
-    - name: rook-ceph
+    - name: rook-ceph-cluster
       namespace: rook-ceph
