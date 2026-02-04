@@ -20,7 +20,7 @@ spec:
           hostnames: ["alertmanager.${SECRET_DOMAIN}"]
           parentRefs:
             - name: internal
-              namespace: networking
+              namespace: network
               sectionName: https
       alermanagerSpec:
         alertmanagerConfiguration:
@@ -40,7 +40,7 @@ spec:
           hostnames: ["prom.${SECRET_DOMAIN}"]
           parentRefs:
             - name: internal
-              namespace: networking
+              namespace: network
               sectionName: https
 
       prometheusSpec:
