@@ -146,7 +146,7 @@ spec:
       route:
         main:
           enabled: true
-          hostnames: ["{{ .Release.Name }}.${SECRET_DOMAIN}"]
+          hostnames: ["grafana.${SECRET_DOMAIN}"]
           parentRefs:
             - name: envoy-internal
               namespace: network
