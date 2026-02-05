@@ -42,6 +42,11 @@ spec:
               sectionName: https
 
       prometheusSpec:
+        ruleSelectorNilUsesHelmValues: false
+        serviceMonitorSelectorNilUsesHelmValues: false
+        podMonitorSelectorNilUsesHelmValues: false
+        probeSelectorNilUsesHelmValues: false
+        scrapeConfigSelectorNilUsesHelmValues: false
         retention: 14d
         retentionSize: 20GB
         resources:
