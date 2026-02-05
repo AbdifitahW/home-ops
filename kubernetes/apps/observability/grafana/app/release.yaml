@@ -12,137 +12,136 @@ spec:
   values:
     admin:
       existingSecret: grafana-admin
-    grafana.ini:
-      dashboardProviders:
-        dashboardproviders.yaml:
-          apiVersion: 1
-          providers:
-            - name: default
-              orgId: 1
-              folder: ""
-              type: file
-              disableDeletion: false
-              editable: true
-              options:
-                path: /var/lib/grafana/dashboards/default
-      datasources:
-        datasources.yaml:
-          apiVersion: 1
-          deleteDatasources:
-            - name: Prometheus
-              orgId: 1
-            - name: Alertmanager
-              orgId: 1
-          datasources:
-            - name: Prometheus
-              type: prometheus
-              url: http://prometheus-operated.observability.svc.cluser.local:9090
-              access: proxy
-              isDefault: true
-            - name: Alertmanager
-              type: alertmanager
-              url: http://alertmanager-operated.observability.svc.cluser.local:9093
-              access: proxy
-              isDefault: true
-      dashboards:
-        default:
-          cert-manager:
-            url: https://raw.githubusercontent.com/waifulabs/infrastructure/refs/heads/main/kubernetes/apps/observability/grafana/app/dashboards/cert-manager.json
-            datasource: Prometheus
-          ceph-cluster:
-            # renovate: depName="Ceph Cluster"
-            gnetId: 2842
-            revision: 18
-            datasource: Prometheus
-          ceph-osd:
-            # renovate: depName="Ceph - OSD (Single)"
-            gnetId: 5336
-            revision: 9
-            datasource: Prometheus
-          ceph-pools:
-            # renovate: depName="Ceph - Pools"
-            gnetId: 5342
-            revision: 9
-            datasource: Prometheus
-          cloudflared:
-            # renovate: depName="Cloudflare Tunnels (cloudflared)"
-            gnetId: 17457
-            revision: 6
-            datasource:
-              - { name: DS_PROMETHEUS, value: Prometheus }
-          envoy-gateway-global:
-            url: https://raw.githubusercontent.com/envoyproxy/gateway/refs/heads/main/charts/gateway-addons-helm/dashboards/envoy-gateway-global.json
-            datasource: Prometheus
-          envoy-proxy-global:
-            url: https://raw.githubusercontent.com/envoyproxy/gateway/refs/heads/main/charts/gateway-addons-helm/dashboards/envoy-proxy-global.json
-            datasource: Prometheus
-          envoy-global-ratelimit:
-            url: https://raw.githubusercontent.com/envoyproxy/gateway/refs/heads/main/charts/gateway-addons-helm/dashboards/global-ratelimit.json
-            datasource: Prometheus
-          flux-cluster:
-            url: https://raw.githubusercontent.com/fluxcd/flux2-monitoring-example/main/monitoring/configs/dashboards/cluster.json
-            datasource: Prometheus
-          flux-control-plane:
-            url: https://raw.githubusercontent.com/fluxcd/flux2-monitoring-example/main/monitoring/configs/dashboards/control-plane.json
-            datasource: Prometheus
-          kubernetes-api-server:
-            # renovate: depName="Kubernetes / System / API Server"
-            gnetId: 15761
-            revision: 20
-            datasource: Prometheus
-          kubernetes-coredns:
-            # renovate: depName="Kubernetes / System / CoreDNS"
-            gnetId: 15762
-            revision: 22
-            datasource: Prometheus
-          kubernetes-global:
-            # renovate: depName="Kubernetes / Views / Global"
-            gnetId: 15757
-            revision: 43
-            datasource: Prometheus
-          kubernetes-namespaces:
-            # renovate: depName="Kubernetes / Views / Namespaces"
-            gnetId: 15758
-            revision: 44
-            datasource: Prometheus
-          kubernetes-nodes:
-            # renovate: depName="Kubernetes / Views / Nodes"
-            gnetId: 15759
-            revision: 40
-            datasource: Prometheus
-          kubernetes-pods:
-            # renovate: depName="Kubernetes / Views / Pods"
-            gnetId: 15760
-            revision: 37
-            datasource: Prometheus
-          kubernetes-volumes:
-            # renovate: depName="K8s / Storage / Volumes / Cluster"
-            gnetId: 11454
-            revision: 14
-            datasource: Prometheus
-          node-exporter-full:
-            # renovate: depName="Node Exporter Full"
-            gnetId: 1860
-            revision: 42
-            datasource: Prometheus
-          prometheus:
-            # renovate: depName="Prometheus"
-            gnetId: 19105
-            revision: 8
-            datasource: Prometheus
-      sidecar:
-        dashboards:
-          enabled: true
-          searchNamespace: ALL
-          label: grafana_dashboard
-          folderAnnotation: grafana_folder
-          provider:
-            disableDelete: true
-            foldersFromFilesStructure: true
+    dashboardProviders:
+      dashboardproviders.yaml:
+        apiVersion: 1
+        providers:
+          - name: default
+            orgId: 1
+            folder: ""
+            type: file
+            disableDeletion: false
+            editable: true
+            options:
+              path: /var/lib/grafana/dashboards/default
+    datasources:
+      datasources.yaml:
+        apiVersion: 1
+        deleteDatasources:
+          - name: Prometheus
+            orgId: 1
+          - name: Alertmanager
+            orgId: 1
         datasources:
-          enabled: true
-          labelValue: ""
-          searchNamespace: ALL
+          - name: Prometheus
+            type: prometheus
+            url: http://prometheus-operated.observability.svc.cluser.local:9090
+            access: proxy
+            isDefault: true
+          - name: Alertmanager
+            type: alertmanager
+            url: http://alertmanager-operated.observability.svc.cluser.local:9093
+            access: proxy
+            isDefault: true
+    dashboards:
+      default:
+        cert-manager:
+          url: https://raw.githubusercontent.com/waifulabs/infrastructure/refs/heads/main/kubernetes/apps/observability/grafana/app/dashboards/cert-manager.json
+          datasource: Prometheus
+        ceph-cluster:
+          # renovate: depName="Ceph Cluster"
+          gnetId: 2842
+          revision: 18
+          datasource: Prometheus
+        ceph-osd:
+          # renovate: depName="Ceph - OSD (Single)"
+          gnetId: 5336
+          revision: 9
+          datasource: Prometheus
+        ceph-pools:
+          # renovate: depName="Ceph - Pools"
+          gnetId: 5342
+          revision: 9
+          datasource: Prometheus
+        cloudflared:
+          # renovate: depName="Cloudflare Tunnels (cloudflared)"
+          gnetId: 17457
+          revision: 6
+          datasource:
+            - { name: DS_PROMETHEUS, value: Prometheus }
+        envoy-gateway-global:
+          url: https://raw.githubusercontent.com/envoyproxy/gateway/refs/heads/main/charts/gateway-addons-helm/dashboards/envoy-gateway-global.json
+          datasource: Prometheus
+        envoy-proxy-global:
+          url: https://raw.githubusercontent.com/envoyproxy/gateway/refs/heads/main/charts/gateway-addons-helm/dashboards/envoy-proxy-global.json
+          datasource: Prometheus
+        envoy-global-ratelimit:
+          url: https://raw.githubusercontent.com/envoyproxy/gateway/refs/heads/main/charts/gateway-addons-helm/dashboards/global-ratelimit.json
+          datasource: Prometheus
+        flux-cluster:
+          url: https://raw.githubusercontent.com/fluxcd/flux2-monitoring-example/main/monitoring/configs/dashboards/cluster.json
+          datasource: Prometheus
+        flux-control-plane:
+          url: https://raw.githubusercontent.com/fluxcd/flux2-monitoring-example/main/monitoring/configs/dashboards/control-plane.json
+          datasource: Prometheus
+        kubernetes-api-server:
+          # renovate: depName="Kubernetes / System / API Server"
+          gnetId: 15761
+          revision: 20
+          datasource: Prometheus
+        kubernetes-coredns:
+          # renovate: depName="Kubernetes / System / CoreDNS"
+          gnetId: 15762
+          revision: 22
+          datasource: Prometheus
+        kubernetes-global:
+          # renovate: depName="Kubernetes / Views / Global"
+          gnetId: 15757
+          revision: 43
+          datasource: Prometheus
+        kubernetes-namespaces:
+          # renovate: depName="Kubernetes / Views / Namespaces"
+          gnetId: 15758
+          revision: 44
+          datasource: Prometheus
+        kubernetes-nodes:
+          # renovate: depName="Kubernetes / Views / Nodes"
+          gnetId: 15759
+          revision: 40
+          datasource: Prometheus
+        kubernetes-pods:
+          # renovate: depName="Kubernetes / Views / Pods"
+          gnetId: 15760
+          revision: 37
+          datasource: Prometheus
+        kubernetes-volumes:
+          # renovate: depName="K8s / Storage / Volumes / Cluster"
+          gnetId: 11454
+          revision: 14
+          datasource: Prometheus
+        node-exporter-full:
+          # renovate: depName="Node Exporter Full"
+          gnetId: 1860
+          revision: 42
+          datasource: Prometheus
+        prometheus:
+          # renovate: depName="Prometheus"
+          gnetId: 19105
+          revision: 8
+          datasource: Prometheus
+    sidecar:
+      dashboards:
+        enabled: true
+        searchNamespace: ALL
+        label: grafana_dashboard
+        folderAnnotation: grafana_folder
+        provider:
+          disableDelete: true
+          foldersFromFilesStructure: true
+      datasources:
+        enabled: true
+        labelValue: ""
+        searchNamespace: ALL
     route:
       main:
         enabled: true
