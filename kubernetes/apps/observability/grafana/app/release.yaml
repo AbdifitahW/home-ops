@@ -143,11 +143,11 @@ spec:
           enabled: true
           labelValue: ""
           searchNamespace: ALL
-      route:
-        main:
-          enabled: true
-          hostnames: ["grafana.${SECRET_DOMAIN}"]
-          parentRefs:
-            - name: envoy-internal
-              namespace: network
-              sectionName: https
+    route:
+      main:
+        enabled: true
+        hostnames: ["grafana.${SECRET_DOMAIN}"]
+        parentRefs:
+          - name: envoy-internal
+            namespace: network
+            sectionName: https
