@@ -12,6 +12,15 @@ spec:
   values:
     toolbox:
       enabled: false
+    route:
+      dashboard:
+        host:
+          name: rook.${SECRET_DOMAIN}
+          path: /
+          pathType: PathPrefix
+        parentRefs:
+          - name: envoy-internal
+            namespace: network
     monitoring:
       enabled: true
       createPrometheusRules: true
@@ -42,6 +51,9 @@ spec:
     cephClusterSpec:
       dashboard:
         enabled: true
+        urlPrefix: /
+        ssl: false
+        prometheusEndpoint: http://prometheus-operated.observability.svc.cluster.local:9090
       cleanupPolicy:
         wipeDevicesFromOtherClusters: true
       storage:
