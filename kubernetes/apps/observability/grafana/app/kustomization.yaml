@@ -1,0 +1,4 @@
+resources:
+  - ./ocirepository.yaml
+  - ./release.yaml
+  - ./grafana-admin.sops.yaml

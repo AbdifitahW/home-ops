@@ -1,0 +1,24 @@
+# https://kubernetes.io/docs/concepts/configuration/secret/
+apiVersion: v1
+kind: Secret
+metadata:
+  name: grafana-admin
+stringData:
+  admin-user: ENC[AES256_GCM,data:yN6WeT4=,iv:tNYxJY7yF2dA5Q5BJVp4p9pu/7HOondqoiSd0hd5Wm4=,tag:dk2TeB7POum2SzEeq9G3iA==,type:str]
+  admin-password: ENC[AES256_GCM,data:vaU8js6k4Q==,iv:4+OOqwKI4/DG6+QMlVGlNsdLocZeKGBT3UzKqTmpAQw=,tag:DHWvtvwY3FCWlNapCneANA==,type:str]
+sops:
+  age:
+    - recipient: age1032qnksttng5z3qw0png7wv55dpdjgdqgljz05kkxsf3qajgfqjq0jyqm3
+      enc: |
+        -----BEGIN AGE ENCRYPTED FILE-----
+        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBYRmppaG15eVdwNWM5OHJy
+        bFR2NFNUU0V3Zi9pUlRVaUtuekcvNHVJd1hvCnRIK05FcktoMkw0K3FOc0ozbHV6
+        ZXI2dUx6S2VFWWMyNkRsVWhtWWROMmcKLS0tIGRUcmxFVUlGMS9XT3o1eXY0bE43
+        REM2VVFvdks5WWxkeEg2UzVpcXlxRWMKFIscDYPceTEVC3ukxVS8I4IrgHjCiBeB
+        MGym8JlnEctshpNqJXKYq19IAqP0y2joh7iKYiH6dgpjgVvr0Q46Yw==
+        -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2026-02-05T00:47:48Z"
+  mac: ENC[AES256_GCM,data:xec2xyAm1tZBB0b3Ywdfb2Ok6jRraa0HLGmltVqKJNRGhpQ8MMkYRbJ8cSfScq+4+lsJAhpPKOMTYwEC0sWfFW8189PScMENiOkXYog/QuQ1Sx1kuRQ8iLtk4HZK7H/JzqaWWVs3PVQs+A8kM3f5SCJZpIBpP/l/WCb6waozNv4=,iv:5KsnGO5jXUct/Sl1DxtRyAttztGV8c3o26VNf5dwpso=,tag:sduLu/2GqVkBvYBLBCWpAA==,type:str]
+  encrypted_regex: ^(data|stringData)$
+  mac_only_encrypted: true
+  version: 3.11.0
