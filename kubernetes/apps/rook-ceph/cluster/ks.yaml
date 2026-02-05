@@ -9,6 +9,10 @@ spec:
   prune: true
   targetNamespace: rook-ceph
   path: ./kubernetes/apps/rook-ceph/cluster/app
+  postBuild:
+    substituteFrom:
+      - name: cluster-secrets
+        kind: Secret
   dependsOn:
     - name: rook-ceph-operator
       namespace: rook-ceph
