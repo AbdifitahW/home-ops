@@ -11,6 +11,8 @@ spec:
     name: grafana
   timeout: 15m
   values:
+    deploymentStrategy:
+      type: Recreate
     admin:
       existingSecret: grafana-admin
     dashboardProviders:
