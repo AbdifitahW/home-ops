@@ -43,7 +43,7 @@ spec:
             type: alertmanager
             url: http://alertmanager-operated.observability.svc.cluster.local:9093
             access: proxy
-            isDefault: true
+            isDefault: false
     dashboards:
       default:
         cert-manager:
