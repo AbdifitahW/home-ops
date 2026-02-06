@@ -9,4 +9,5 @@ components:
 resources:
   - ./kube-prometheus-stack/ks.yaml
   - ./grafana/ks.yaml
+  - ./kromgo/ks.yaml
   - ./namespace.yaml
