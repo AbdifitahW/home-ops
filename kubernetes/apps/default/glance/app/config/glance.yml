@@ -1,0 +1,73 @@
+pages:
+  - name: Home
+    columns:
+      - size: small
+        widgets:
+          - type: calendar
+            first-day-of-week: monday
+
+          - type: rss
+            limit: 10
+            collapse-after: 3
+            cache: 12h
+            feeds:
+              - url: https://selfh.st/rss/
+                title: selfh.st
+                limit: 4
+              - url: https://www.cloudcomputing-news.net/feed/
+              - url: https://kubernetes.io/feed.xml
+                title: Kubernetes Official Blog
+
+      - size: full
+        widgets:
+          - type: group
+            widgets:
+              - type: hacker-news
+              - type: lobsters
+                sort-by: hot
+                tags:
+                  - go
+                  - linux
+                limit: 15
+                collapse-after: 5
+          - type: extension
+            url: http://glance-k8s-extension/extension/nodes
+            allow-potentially-dangerous-html: true
+            cache: 1s
+            parameters:
+              show-if: |
+                namespace != kube-system &&
+                ("glance/hide" not in annotations || annotations["glance/hide"] != "true")
+
+          - type: videos
+            channels:
+              - UCfz8x0lVzJpb_dgWm9kPVrw # The DoT
+              - UCYeiozh-4QwuC1sjgCmB92w # DevOps ToolBox
+              - UCdngmbVKX1Tgre699-XLlUA # Techworld with Nana
+
+          - type: group
+            widgets:
+              - type: reddit
+                subreddit: selfhosted
+                show-thumbnails: true
+              - type: reddit
+                subreddit: nba
+                show-thumbnails: true
+
+      - size: small
+        widgets:
+          - type: weather
+            location: Toronto, Canada
+            units: metric
+          - type: markets
+            markets:
+              - symbol: SPY
+                name: S&P 500
+              - symbol: BTC-USD
+                name: Bitcoin
+              - symbol: NVDA
+                name: NVIDIA
+              - symbol: AAPL
+                name: Apple
+              - symbol: MSFT
+                name: Microsoft

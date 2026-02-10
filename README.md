@@ -1,4 +1,9 @@
+<div align="center">
+
 ## 📊 Cluster Status
+
+</div>
+
 
 <div align="center">
 
