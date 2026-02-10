@@ -62,11 +62,11 @@ spec:
               readiness: *probes
         serviceAccount:
           identifier: *app
-        defaultPodOptions:
-          securityContext:
-            runAsNonRoot: true
-            runAsUser: 65534
-            runAsGroup: 65534
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65534
+        runAsGroup: 65534
     service:
       glance:
         controller: glance
