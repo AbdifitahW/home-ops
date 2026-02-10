@@ -80,6 +80,7 @@ spec:
             port: *port
     serviceMonitor:
       glance:
+        identifier: *app
         endpoints:
           - port: http
     route:
