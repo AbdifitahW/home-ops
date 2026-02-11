@@ -19,11 +19,6 @@ spec:
             image:
               repository: glanceapp/glance
               tag: v0.8.4
-            env:
-              HTTP_PORT: &port 80
-              LOG_WITHOUT_NEWLINE: true
-              LOG_IGNORE_PATH: /healthz
-              PROMETHEUS_ENABLED: true
             probes:
               liveness: &probes
                 enabled: true
@@ -31,7 +26,7 @@ spec:
                 spec:
                   httpGet:
                     path: /healthz
-                    port: *port
+                    port: &port 80
                   initialDelaySeconds: 0
                   periodSeconds: 10
                   timeoutSeconds: 1
@@ -65,10 +60,10 @@ spec:
                   httpGet:
                     path: /healthz
                     port: 8081
-                  initialDelaySeconds: 0
-                  periodSeconds: 10
-                  timeoutSeconds: 1
-                  failureThreshold: 3
+                  #initialDelaySeconds: 0
+                  #periodSeconds: 10
+                  #timeoutSeconds: 1
+                  #failureThreshold: 3
               readiness: *k8-probes
         serviceAccount:
           identifier: *app
