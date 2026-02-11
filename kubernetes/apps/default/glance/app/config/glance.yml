@@ -31,7 +31,7 @@ pages:
                 limit: 15
                 collapse-after: 5
           - type: extension
-            url: http://glance-k8s-extension/extension/nodes
+            url: http://glance-k8s-extension:8081/extension/nodes
             allow-potentially-dangerous-html: true
             cache: 1s
             parameters:

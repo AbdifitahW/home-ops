@@ -64,7 +64,7 @@ spec:
                 spec:
                   httpGet:
                     path: /healthz
-                    port: 8080
+                    port: 8081
                   initialDelaySeconds: 0
                   periodSeconds: 10
                   timeoutSeconds: 1
@@ -87,7 +87,7 @@ spec:
         controller: glance
         ports:
           http:
-            port: 8080
+            port: 8081
     serviceMonitor:
       glance:
         serviceName: *app
