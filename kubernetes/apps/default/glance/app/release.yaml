@@ -122,6 +122,9 @@ spec:
             - apiGroups: [""]
               resources: ["services"]
               verbs: ["list"]
+            - apiGroups: ["gateway.networking.k8s.io/v1"]
+              resources: ["httproutes"]
+              verbs: ["list"]
             - apiGroups: ["networking.k8s.io"] # networking.k8s.io/v1
               resources: ["ingresses", "ingressclasses"]
               verbs: ["list"]
