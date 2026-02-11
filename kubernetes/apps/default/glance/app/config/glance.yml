@@ -37,10 +37,6 @@ pages:
             url: http://glance-k8s-extension:8080/extension/apps
             allow-potentially-dangerous-html: true
             cache: 1s
-            parameters:
-              show-if:
-                - |
-                  namespace != kube-system
           - type: extension
             url: http://glance-k8s-extension:8080/extension/nodes
             allow-potentially-dangerous-html: true
