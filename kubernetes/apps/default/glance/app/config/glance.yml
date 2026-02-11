@@ -1,3 +1,6 @@
+server:
+  port: 80
+  proxy: true
 pages:
   - name: Home
     columns:
