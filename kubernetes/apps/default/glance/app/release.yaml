@@ -19,19 +19,19 @@ spec:
             image:
               repository: glanceapp/glance
               tag: v0.8.4
-            probes:
-              liveness: &probes
-                enabled: true
-                custom: true
-                spec:
-                  httpGet:
-                    path: /healthz
-                    port: &port 80
-                  initialDelaySeconds: 0
-                  periodSeconds: 10
-                  timeoutSeconds: 1
-                  failureThreshold: 3
-              readiness: *probes
+            ##probes:
+            ##  liveness: &probes
+            ##    enabled: true
+            ##    custom: true
+            ##    spec:
+            ##      httpGet:
+            ##        path: /healthz
+            ##        port: &port 80
+            ##      initialDelaySeconds: 0
+            ##      periodSeconds: 10
+            ##      timeoutSeconds: 1
+            ##      failureThreshold: 3
+            ##  readiness: *probes
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
