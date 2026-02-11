@@ -58,8 +58,18 @@ spec:
               capabilities: { drop: ["ALL"] }
             resources: {}
             probes:
-              liveness: *probes
-              readiness: *probes
+              liveness: &k8-probes
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /healthz
+                    port: 8080
+                  initialDelaySeconds: 0
+                  periodSeconds: 10
+                  timeoutSeconds: 1
+                  failureThreshold: 3
+              readiness: *k8-probes
         serviceAccount:
           identifier: *app
     defaultPodOptions:
@@ -77,7 +87,7 @@ spec:
         controller: glance
         ports:
           http:
-            port: *port
+            port: 8080
     serviceMonitor:
       glance:
         serviceName: *app
