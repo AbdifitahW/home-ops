@@ -48,7 +48,6 @@ spec:
             env:
               TZ: America/New_York
               GLANCE_DEBUG: 1
-              GLANCE_KUBE_CONFIG: /kubeconfig
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
