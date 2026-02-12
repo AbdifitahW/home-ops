@@ -47,6 +47,7 @@ spec:
               tag: v0.4.3
             env:
               TZ: America/New_York
+              GLANCE_DEBUG: 1
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
