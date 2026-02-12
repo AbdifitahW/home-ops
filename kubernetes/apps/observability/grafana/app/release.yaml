@@ -19,7 +19,7 @@ spec:
       # The shorthands `di:` and `si:` are supported similar to glance.
       glance/icon: di:grafana
       # glance/icon: https://example.org/glance.png
-      glance/url: "grafana.${SECRET_DOMAIN}"
+      glance/url: "/"
     admin:
       existingSecret: grafana-admin
     dashboardProviders:
