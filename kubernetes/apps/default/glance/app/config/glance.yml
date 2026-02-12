@@ -37,14 +37,14 @@ pages:
             url: http://glance-k8s-extension:8080/extension/apps
             allow-potentially-dangerous-html: true
             cache: 1s
-          - type: extension
-            url: http://glance-k8s-extension:8080/extension/nodes
-            allow-potentially-dangerous-html: true
-            cache: 1s
             parameters:
               show-if: |
                 namespace != kube-system &&
                 ("glance/hide" not in annotations || annotations["glance/hide"] != "true")
+          #- type: extension
+          #  url: http://glance-k8s-extension:8080/extension/nodes
+          #  allow-potentially-dangerous-html: true
+          #  cache: 1s
 
           - type: videos
             channels:
