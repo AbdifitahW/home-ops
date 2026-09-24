@@ -18,7 +18,7 @@ spec:
           glance:
             image:
               repository: glanceapp/glance
-              tag: v0.8.4
+              tag: v0.8.6
             ##probes:
             ##  liveness: &probes
             ##    enabled: true
